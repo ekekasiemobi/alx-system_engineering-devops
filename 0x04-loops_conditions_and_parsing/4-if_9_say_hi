@@ -5,13 +5,13 @@
 i=1
 while [ $i -le 10 ]
 do
-    if [ $i -eq 9 ]; then
+    if [ $i -eq 9 ];
+    then
        echo "Best School"
        echo "Hi"
     else
         echo "best school"
     fi
-
     ((i++))
    
 done
