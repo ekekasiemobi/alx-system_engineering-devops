@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# this script displays best school 10 time
+# with Hi using for and if statement
+
+i=1
+while [ $i -le 10 ]
+do
+    if [ $i -eq 9 ]; then
+       echo "Best School"
+       echo "Hi"
+    else
+        echo "best school"
+    fi
+
+    ((i++))
+   
+done
