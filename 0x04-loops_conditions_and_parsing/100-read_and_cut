@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#  displays the content of the file
+
+while read -r LINE; 
+do
+    echo "$LINE" | cut -d':' -f 1,4,7
+done < /etc/passwd
