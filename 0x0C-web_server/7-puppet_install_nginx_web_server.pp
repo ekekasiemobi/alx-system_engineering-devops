@@ -7,7 +7,7 @@ package { 'nginx':
 }
 
 exec { 'install nginx':
-  command  => 'sudo apt -y update && sudo apt-get -y nginx',
+  command  => 'sudo apt -y update && sudo apt -y install nginx',
   provider => shell,
 }
 
@@ -24,14 +24,14 @@ file { '/etc/nginx/sites-available/default':
   require => Exec['install nginx'],
 }
 
-file { '/ver/www/html/index.html':
+file { '/var/www/html/index.html':
   ensure  =>  'file',
   content =>  'Hello World!',
   require =>  Exec['install nginx'],
 }
 
 exec { 'run':
-  command  => 'sudo service nginx restart',
+  command  => 'sudo service restart nginx',
   provider => shell,
   require  => File['/etc/nginx/sites-available/default'],
 }
