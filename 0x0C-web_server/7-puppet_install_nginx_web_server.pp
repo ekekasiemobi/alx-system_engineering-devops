@@ -3,7 +3,7 @@
 include stdlib
 
 package { 'nginx':
-  ensure  => installed
+  ensure  => installed,
 }
 
 exec { 'install nginx':
@@ -17,7 +17,7 @@ file { '/etc/nginx/sites-available/default':
 		server_name _;
 		root /var/www/html;
 		location / {
-		  index.html
+		  index.html;
           	}
 		rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 	}",
