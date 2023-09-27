@@ -1,5 +1,9 @@
 include stdlib
 
+package { 'nginx':
+  ensure  => installed
+}
+
 exec { 'install nginx':
   command  => 'sudo apt update && sudo apt-get -y nginx',
   provider => shell,
