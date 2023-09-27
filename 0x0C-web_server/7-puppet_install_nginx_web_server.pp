@@ -5,12 +5,12 @@ package { 'nginx':
 }
 
 exec { 'install nginx':
-  command  => 'sudo apt update && sudo apt-get -y nginx',
+  command  => 'sudo apt -y update && sudo apt-get -y nginx',
   provider => shell,
 }
 
 file { '/etc/nginx/sites-available/default':
-  content => 'server {
+  content => "server {
 		listen 80 default_server;
 		server_name _;
 		root /var/www/html;
@@ -18,7 +18,7 @@ file { '/etc/nginx/sites-available/default':
 		  index.html
           	}
 		rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-	}',
+	}",
   require => Exec['install nginx'],
 }
 
@@ -28,7 +28,7 @@ file { '/ver/www/html/index.html':
   require =>  Exec['install nginx'],
 }
 
-exec {'run':
+exec { 'run':
   command  => 'sudo service nginx restart',
   provider => shell,
   require  => File['/etc/nginx/sites-available/default'],
