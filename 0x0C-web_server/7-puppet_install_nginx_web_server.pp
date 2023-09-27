@@ -1,3 +1,5 @@
+# Configuring your server with Puppet
+
 include stdlib
 
 package { 'nginx':
