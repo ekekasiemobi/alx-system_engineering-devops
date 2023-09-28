@@ -17,9 +17,9 @@ file { '/etc/nginx/sites-available/default':
 		server_name _;
 		root /var/www/html;
 		location / {
-		  index.html;
+		index index.html;
           	}
-		rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+		rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 	}",
   require => Exec['install nginx'],
 }
