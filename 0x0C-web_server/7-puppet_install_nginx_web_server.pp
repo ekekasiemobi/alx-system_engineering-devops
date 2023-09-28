@@ -31,7 +31,7 @@ file { '/var/www/html/index.html':
 }
 
 exec { 'run':
-  command  => 'sudo systemctl restart nginx',
+  command  => 'sudo service nginx restart',
   provider => shell,
   #require  => File['/etc/nginx/sites-available/default'],
 }
