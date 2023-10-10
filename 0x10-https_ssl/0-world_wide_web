@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 get_domain () {
-	domain=$1
-	subdomain=$2
-	record=$(dig +short -t A "$subdomain.$domain")
+	domain="$1"
+	subdomain="$2"
 	response=$(dig +short A "$subdomain.$domain")
 	echo "The subdomain $subdomain is a A record and points to $response"
 }
 if [ $# -eq 2 ]; then
-         get_domain $1 $2
+         get_domain "$1" "$2"
 else
 	array=("www" "lb-01" "web-01" "web-02")
 	for subdomain in "${array[@]}"; do
-		get_domain $1 $subdomain
+		get_domain "$1" "$subdomain"
 	done
 fi
 
