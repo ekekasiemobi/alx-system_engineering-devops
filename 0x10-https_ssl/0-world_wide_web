@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Configure your domain zone so that the subdomain www
 get_domain () {
 	domain="$1"
 	subdomain="$2"
