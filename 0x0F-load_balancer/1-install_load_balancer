@@ -2,7 +2,7 @@
 #Configure HAproxy so that it send traffic to web-01 and web-02
 
 apt -y update
-apt-get -y haproxy
+apt-get -y install haproxy
 
 config="
 frontend haproxy_balancer
